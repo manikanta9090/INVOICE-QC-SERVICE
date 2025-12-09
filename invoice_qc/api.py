@@ -30,11 +30,19 @@ def health():
 
 @app.post("/validate-json")
 async def validate_json(invoices: List[dict]):
+    """Validate a list of invoices in JSON format."""
     if not isinstance(invoices, list):
         raise HTTPException(status_code=400, detail="Body must be a JSON array (list of invoices)")
+    if len(invoices) == 0:
+        raise HTTPException(status_code=400, detail="Invoice list cannot be empty")
+    
     validator = InvoiceValidator()
     results, summary = validator.validate_all(invoices)
-    return {"summary": summary, "results": results}
+    return {
+        "summary": summary,
+        "results": results,
+        "extracted": invoices  # Return original invoices for reference
+    }
 
 @app.post("/extract-and-validate-pdfs")
 async def extract_and_validate_pdfs(files: List[UploadFile] = File(...)):
