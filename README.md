@@ -145,33 +145,13 @@ Response
 }
 
 🧪 Validation Rules
-Mandatory Fields
-
-Invoice Number
-
-Date
-
-Vendor Name
-
-Amount
-
-Format Rules
-
-Invoice number cannot be empty
-
-Date must be valid ISO format
-
-Amount must be numeric and positive
-
-Future Rules You Can Extend
-
-GST Number check
-
-OCR extraction from image
-
-Text similarity check
-
-LLM-based field classification
+Mandatory Fields:
+{
+Invoice Number, Date, Vendor Name, Amount, Format Rules, Invoice number cannot be empty,
+Date must be valid ISO format,
+Amount must be numeric and positive,
+Future Rules You Can Extend,GST Number check,OCR extraction from image, Text similarity check,LLM-based field classification
+}
 
 🧩 Future Enhancements
 
@@ -209,3 +189,4 @@ git commit -m "Updated project UI and backend"
 git push
 
 📚 Conclusion
+
